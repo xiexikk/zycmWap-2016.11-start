@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>仲意建材报</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="../img/favicon.ico"/>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <script src="../js/zepto_plus.js"></script>
+    <script src="../js/zepto.cookie.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../js/page.js"></script>
+</head>
+<body style="background-color: #363636;">
+<section class="perList">
+    <div class="in">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk02.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk03.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk04.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk05.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk06.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk07.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk08.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk09.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk10.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('.perList li').each(function (i, e) {
+            //a链接
+            var $e = $(this);
+            $e.find('a').attr('href', 'periodicalsDet.html' + '?page=' + (i + 1));
+        });
+    });
+</script>
+</body>
+</html>

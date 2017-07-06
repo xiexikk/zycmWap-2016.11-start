@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>仲意建材报</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="../img/favicon.ico" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <script src="../js/zepto_plus.js"></script>
+    <script src="../js/zepto.cookie.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../js/page.js"></script>
+</head>
+<body>
+
+<section class="giveMes">
+    <div class="in">
+        <div class="text">
+            <form action="" method="">
+                <textarea placeholder="请输入留言内容" id="textCom"></textarea>
+            </form>
+
+            <p class="warnTip tip01">提示01..</p>
+
+            <div class="consultSub">
+                <button type="button">提交</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    //自我推荐内容
+    var speed = 0;
+    var tex = $('#textCom');
+    tex.on("input",function(){
+        tip03.fadeIn(speed).html("");
+        var texHtml =  $(this).val();
+        if($.trim(texHtml)==""){
+            tip01.fadeIn(speed).html("请输入自我推荐内容！");
+            return false;
+        }
+    });
+</script>
+
+</body>
+</html>

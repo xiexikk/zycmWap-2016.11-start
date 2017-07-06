@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>仲意建材报</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="../img/favicon.ico"/>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <script src="../js/zepto_plus.js"></script>
+    <script src="../js/zepto.cookie.js"></script>
+    <script src="../js/base.js"></script>
+</head>
+<body>
+<section class="perDet">
+    <div class="in">
+        <ul id="bookUl">
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk02.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk03.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk04.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk05.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk06.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk07.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk08.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk09.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../img/sk10.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+<footer class="perHandle">
+    <div class="in">
+        <ol>
+            <li class="li01">
+                <span class="curPage">1</span>
+                <em class="slantLine center"></em>
+                <span class="allPage">10</span>
+            </li>
+            <li>
+                <a href="advCooperate.html" class="advBtn">广告合作</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="tel:88888888" x-apple-data-detectors="true" x-apple-data-detectors-result="0" class="telBtn">一键拨打</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="consult.html" class="consultBtn">立即咨询</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="periodicalsList.html" class=" previewBtn">预览</a>
+                <i></i>
+            </li>
+        </ol>
+    </div>
+</footer>
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script>
+    //控制宽度，高度
+    $(window).on('resize', function () {
+        var ulHig = $(window).height() - $(".perHandle").height();
+        var windWid = $("body").css("max-width");
+        $("#bookUl").height(ulHig);
+        $("#bookUl li").width(windWid);
+    }).trigger('resize');
+    //控制Ul li, 手势滑动事件处理
+    window.onload = function () {
+        var bookUl = $("#bookUl");          //ul
+        var bookUlLi = $("#bookUl li");    //li
+        var curPage = $(".curPage");        //当前页: curPage
+        var allPage = $(".allPage")         //总页数：allPage
+        var ulWid = 0;                        //ul宽度初始化为0
+        var speed = 200;                    //切换速度
+        var books = {
+            liNum  : $("#bookUl li").length,
+            liWid  : $("#bookUl li").width(),
+            liWidth: [],
+        }
+        bookUlLi.each(function (i, e) {         //遍历出每个li的宽度来计算Ul总宽度
+            var x = $(e).width();
+            ulWid += x;
+            books.liWidth[i] = x;
+        });
+        bookUl.css("width", ulWid);
+        allPage.text(books.liNum);
+        // 2016.11.28 periodicalsList.html对应图片链接到指定的本页面的图片显示
+        var o = new GetValue();
+        //console.info({}.toString.call(o.page), o.page); //Object.prototype.toString.call(o.page)
+        $('#bookUl').css('left', -books.liWid * (o.page - 1));
+        $('.curPage').html(o.page);
+        var loopNum = o.page-1 || 0;
+
+        bookUl.on("swipeLeft", function () {          //手势左右滑动Fn
+            loopNum++;
+            if (loopNum > books.liNum - 1) {
+                loopNum = books.liNum - 1;
+            }
+            bookUl.stop().animate({'left': -1 * books.liWid * loopNum + 'px'}, speed);
+            curPage.text(loopNum + 1);
+        }).on('swipeRight', function () {
+            loopNum--;
+            if (loopNum < 0) {
+                loopNum = 0;
+            }
+            bookUl.stop().animate({'left': -1 * books.liWid * loopNum + 'px'}, speed);
+            curPage.text(loopNum + 1);
+        });
+    }
+</script>
+</body>
+</html>

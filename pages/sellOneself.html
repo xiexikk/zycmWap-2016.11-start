@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>仲意建材报</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="../img/favicon.ico" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <script src="../js/zepto_plus.js"></script>
+    <script src="../js/zepto.cookie.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../js/page.js"></script>
+</head>
+<body style="background-color: #fff;">
+
+<header class="sellYou">
+    <h1>人才自荐</h1>
+</header>
+
+<section class="sellList">
+    <div class="in">
+        <ul>
+            <li>
+                <div class="pos">
+                    <i></i><span>广州</span>
+                </div>
+                <div class="tp">
+                    <a href="oneself.html"><img src="../img/yhTx.png" alt=""></a>
+                </div>
+                <div class="tx">
+                    <h3 class="name">哈喽</h3>
+                    <p>五年门窗展览管理经验，参加过2016年中国
+                        铁门展览会，获得“优秀展会奖“。
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="pos">
+                    <i></i><span>广州</span>
+                </div>
+                <div class="tp">
+                    <a href="javascript:;"><img src="../img/yhTx.png" alt=""></a>
+                </div>
+                <div class="tx">
+                    <h3 class="name">沐沐</h3>
+                    <p>五年门窗展览管理经验，参加过2016年中国
+                        铁门展览会，获得“优秀展会奖“。
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="pos">
+                    <i></i><span>广州</span>
+                </div>
+                <div class="tp">
+                    <a href="javascript:;"><img src="../img/yhTx.png" alt=""></a>
+                </div>
+                <div class="tx">
+                    <h3 class="name">沐沐</h3>
+                    <p>五年门窗展览管理经验，参加过2016年中国
+                        铁门展览会，获得“优秀展会奖“。
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<footer class="sellBtn">
+    <div class="in">
+        <a href="sellData.html">我要自荐</a>
+    </div>
+</footer>
+
+<!--非会员点击用户头像，无法查看权限，提示警告-->
+<section class="myPop" id="powerPop">
+    <div class="wrap"></div>
+    <div class="in center">
+        <i class="close"></i>
+        <span class="tp">
+            <img src="../img/tip.png" alt="">
+        </span>
+        <div class="tx">
+            <h3>该条详细信息你无权查看</h3>
+            <p>若想查看该信息，请联系仲意</p>
+            <p>传媒：020-86669541</p>
+        </div>
+        <div class="btn">
+            <a href="tel:88888888" x-apple-data-detectors="true" x-apple-data-detectors-result="0" >一键拨打</a>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+        function showWarnTip(userTx,pop){
+            var speed = 100;
+            $(userTx).on("click",function(){
+                $(pop).fadeIn(speed);
+                $(pop+" .wrap").fadeIn(speed);
+                $("html").css("overflow","hidden");
+            });
+            $(pop+" .close,"+pop+" .wrap").on("click",function(){
+                $(pop).fadeOut(speed);
+                $(pop+" .wrap").fadeOut(speed);
+                $("html").css("overflow","visible");
+            });
+        }
+        showWarnTip(".sellList .tp","#powerPop");
+    })
+</script>
+
+</body>
+</html>

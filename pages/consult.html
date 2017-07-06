@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>仲意建材报</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="../img/favicon.ico" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <script src="../js/zepto_plus.js"></script>
+    <script src="../js/zepto.cookie.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../js/page.js"></script>
+</head>
+<body>
+
+<section class="consult answer">
+    <div class="in">
+        <form action="" method="">
+            <div class="inpCom">
+                <div class="inp">
+                    <span class="ti">姓名</span>
+                    <input type="text" placeholder="请输入您的姓名" value="" id="name">
+                </div>
+                <div class="inp">
+                    <span class="ti">手机</span>
+                    <input type="number" placeholder="请输入您的手机号" id="phone">
+                </div>
+                <div class="inp inp2">
+                    <span class="ti">留言意向</span>
+                    <textarea  placeholder="请输入留言意向" id="textCom"></textarea>
+                </div>
+            </div>
+        </form>
+
+        <p class="warnTip tip01">提示01..</p>
+        <p class="warnTip tip02">提示02..</p>
+        <p class="warnTip tip03">提示03..</p>
+
+        <div class="consultSub">
+            <button type="button" id="sub">提交</button>
+        </div>
+    </div>
+</section>
+
+<!--表单验证Fn-->
+<script>
+    ~function(){
+        var speed = 0;
+        var tip01 = $('.tip01');
+        var tip02 = $('.tip02');
+        var tip03 = $('.tip03');
+        var btn = $('#sub');
+        var inpName  = $('#name');
+        var inpPhone  = $('#phone');
+        var tex = $('#textCom');
+        //名字
+        inpName.on("input",function(){
+            tip01.fadeIn(speed).html("");
+            var val = $(this).val();
+            if($.trim(val)==""){
+                tip01.fadeIn(speed).html("请输入您的姓名！");
+                return false;
+            }
+        });
+        //手机号
+        var isInteger = RegExp(/^[0-9]+$/);
+        var re =  RegExp(/^[1][358][0-9]{9}$/);
+        inpPhone.on("input",function(){
+            tip02.fadeIn(speed).html("");
+            var val02 =  $(this).val();
+            if(!isInteger.test($.trim(val02))){
+                $(this).val("");
+                tip02.fadeIn(speed).html("请输入手机号！");
+                return false;
+             }
+            if($.trim(val02)==""){
+                tip02.fadeIn(speed).html("请输入手机号！");
+                return false;
+            }
+            if(!re.test($.trim(val02))){
+                tip02.fadeIn(speed).html("请输入正确的手机号！");
+                return false;
+            }
+        });
+        //留言意向
+        tex.on("input",function(){
+            tip03.fadeIn(speed).html("");
+            var texHtml =  $(this).val();
+            if($.trim(texHtml)==""){
+                tip03.fadeIn(speed).html("请输入留言意向！");
+                return false;
+            }
+        });
+
+    }();
+</script>
+
+</body>
+</html>

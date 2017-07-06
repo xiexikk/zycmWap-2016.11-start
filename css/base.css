@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/* 初始化 */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6,
+input, textarea, select, p, dl, dt, dd, a, img, button,
+form, table, th, tr, td, tbody, article, aside, details,
+figcaption, figure, footer, header, menu, nav, section {
+    margin: 0; padding: 0;
+    border: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); outline: none;
+    font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html {
+    height: 100%; overflow-x: hidden; background: #929292;
+    /* 禁用iPhone中Safari的字号自动调整 */
+    -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent;
+}
+body {
+    position: relative; margin: 0 auto; width: 100%; min-width: 320px; max-width: 640px; min-height: 100%; overflow: hidden;;
+    font: 0.24rem/1 "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #333; background-color: #ededed;
+}
+em, i { font-style: normal; }
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header,  menu, nav, section { display: block; }
+a { text-decoration: none; color: #666; font-size: 0.24rem; font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+/*a:hover { color: #ff9c4a;}*/
+h1, h2, h3, h4, h5, h6 { font-weight: normal; line-height: 1.1 }
+strong { font-weight: normal; }
+ul, ol, li { list-style: none; }
+/* 去除iPhone中默认的input样式 */
+input[type="submit"], input[type="reset"], input[type="button"], input { -webkit-appearance: none; resize: none; }
+input:focus{ background-color: #fff;}
+
+select{ background-color: #fff; border-color: #fff;}
+/* 图片自适应 */
+img {
+    max-width: 100%; border: none; vertical-align: middle; height: auto; width: auto \9; /* ie8 */ -ms-interpolation-mode: bicubic; /*为了照顾ie图片缩放失真*/
+}
+/* clearfix */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+/* other */
+.fl { float: left; }
+.fr { float: right; }
+.flex { display: -webkit-box; display: -webkit-flex; display: flex; }
+/* 定位居中 */
+.center{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); -webkit-transform:translate(-50%,-50%); -moz-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);}
+.ver_center{ position:absolute; top:50%; transform:translateY(-50%); -webkit-transform:translateY(-50%); -moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);}
+.hor_center{ position:absolute; left:50%; transform:translateX(-50%);-webkit-transform:translateX(-50%); -moz-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%);}
+
+.warnTip{ color: #f00; font-size: .3rem; padding: 0 .3rem; margin-top: .2rem;  display: none;}
+.warnTip:first-of-type{ margin-top: .5rem;}
